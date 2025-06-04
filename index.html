@@ -5,78 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Market Tracker</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="output.css" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link href="output.css" rel="stylesheet" /> -->
   </head>
 
   <body class="bg-gray-50 p-6">
-    <header class="text-center bg-gray-800 text-white py-6">
-      <h1 class="text-3xl font-bold">Stock Tracker Dashboard</h1>
+   
+    <header>
+      <h1>Stock Tracker Dashboard</h1>
     </header>
-
-    <main class="p-6 max-w-5xl mx-auto">
-      <!-- Dropdown Section -->
-      <section class="mb-6 text-center">
-        <h2 class="text-xl font-semibold mb-2">Select Trending Stock</h2>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <select id="stockDropdown" class="px-4 py-2 text-base w-72 border border-gray-300 rounded-md">
-            <!-- Stock options will be dynamically populated -->
-          </select>
-          <button id="loadStockButton" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Load Stock
-          </button>
-        </div>
+    <main>
+      <section class="dropdown-section">
+        <h2>Select Trending Stock</h2>
+        <select id="stockDropdown">
+          <!-- Stock options will be dynamically populated -->
+        </select>
+        <button id="loadStockButton">Load Stock</button>
       </section>
 
-      <!-- Search Section -->
-      <section class="mb-6 flex flex-col sm:flex-row justify-center items-center gap-4">
+      <section class="search-section">
         <input
           type="text"
           id="stockSearch"
           placeholder="Search for a stock (e.g., AAPL)"
-          class="px-4 py-2 text-base border border-gray-300 rounded w-72"
         />
-        <button id="searchButton" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-          Search
-        </button>
+        <button id="searchButton">Search</button>
       </section>
 
-      <!-- Stock Info Section -->
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-2">Stock Information</h2>
-        <div id="stockDetails" class="bg-white p-4 rounded shadow text-gray-700"></div>
+      <section class="stock-info">
+        <h2>Stock Information</h2>
+        <div id="stockDetails"></div>
       </section>
 
-      <!-- Graph Section -->
-      <section class="mb-8">
-        <h2 class="text-xl font-semibold mb-4">Stock Price Graph</h2>
-        <div class="bg-white p-4 rounded shadow">
-          <canvas id="stockChart" class="w-full h-96"></canvas>
-        </div>
+      <section class="graph-section">
+        <h2>Stock Price Graph</h2>
+        <canvas id="stockChart"></canvas>
       </section>
 
-      <!-- Stock Table Section -->
-      <section>
-        <h2 class="text-xl font-semibold mb-4">Compare Stocks</h2>
-        <div class="overflow-x-auto">
-          <table class="min-w-full bg-white border border-gray-200 text-center rounded shadow">
-            <thead class="bg-gray-100">
-              <tr>
-                <th class="py-2 px-4 border">Stock</th>
-                <th class="py-2 px-4 border">Price</th>
-                <th class="py-2 px-4 border">Change</th>
-                <th class="py-2 px-4 border">Volume</th>
-              </tr>
-            </thead>
-            <tbody id="stockTable" class="text-gray-700">
-              <!-- Stock rows will be dynamically added here -->
-            </tbody>
-          </table>
-        </div>
+      <section class="stock-table">
+        <h2>Compare Stocks</h2>
+        <table id="stockTable">
+          <thead>
+            <tr>
+              <th>Stock</th>
+              <th>Price</th>
+              <th>Change</th>
+              <th>Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Stock rows will be dynamically added here -->
+          </tbody>
+        </table>
       </section>
     </main>
     <script>
-      const apiKey = "BGRQ0GBUKRRPK9GC";
+      const apiKey = "YOUR_ALPHA_VANTAGE_API_KEY";
       const stockSearch = document.getElementById("stockSearch");
       const searchButton = document.getElementById("searchButton");
       const stockDetails = document.getElementById("stockDetails");
@@ -95,7 +80,6 @@
           `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockSymbol}&apikey=${apiKey}`
         );
         const data = await response.json();
-        console.log(data);
         return data["Time Series (Daily)"];
       }
 
@@ -229,7 +213,7 @@
       // Initialize dropdown with trending stocks
       populateDropdown();
     </script>
-   
+  
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
