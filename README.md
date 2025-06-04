@@ -1,47 +1,31 @@
-# Mamaearth Landing Page
+# 📈 Stock Market Tracker
 
-A responsive and visually appealing landing page clone of the **Mamaearth** website, built using **HTML** and **Tailwind CSS**.
+A simple web-based stock market tracker built with HTML, CSS, Chart.js, and the Alpha Vantage API. It allows users to select and visualize the latest stock price trends for major companies.
+
+---
 
 ## 🚀 Features
 
-- Fully responsive design
-- Tailwind CSS for fast styling
-- Hero section with promotional content
-- Product highlight section
-- Testimonials or reviews section
-- Newsletter subscription section
-- Footer with links and social media icons
+- Search and select popular stocks
+- Fetch latest **daily closing prices** via Alpha Vantage
+- Visualize stock trends with **Chart.js**
+- Responsive layout using **CSS**
 
-## 🛠️ Technologies Used
+---
 
-- HTML5
-- Tailwind CSS
+## 📦 Technologies Used
 
-## 📸 Screenshots
+- **HTML5**
+- **CSS**
+- **Chart.js**
+- **Alpha Vantage API**
 
-> ![Desktop View](landing-page.png)
-
-## 📁 Folder Structure
-
-mamaearth-landing-page/
-│
-├── index.html
-├── assets
-|── style.css
-│── output.css
-└── README.md
+---
 
 ## 🔧 Setup Instructions
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/abhi1994j/Mamaearth_Ui.git
+### 1. Clone or Download
 
-## 🎯 Live Demo
-
-> https://mamaearth-ui-8u4i.vercel.app/
-
-## ✨ Author
-  Abhishek Chatterjee
-
- | GitHub
+```bash
+git clone https://github.com/abhi1994j/Stocks_-Tracker
+cd stock-market-tracker
